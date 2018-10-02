@@ -1,18 +1,30 @@
 const botao = document.querySelector("#button_news");
 const campo_email = document.querySelector("#newsInputEmail");
 
-botao.addEventListener('click', function(event){
+botao.addEventListener('click', function (event) {
     event.preventDefault();
-    const resposta = document.createElement("span");
-    const mensagem = document.createTextNode("E-mail salvo com Sucesso!");
 
-    resposta.appendChild(mensagem);
+    if (campo_email.value == '') {
 
-   const a = document.querySelector(".news__form");
+        alert("Campo E-mail Obrigatório");
 
-   //const a = campo_email.parentNode;
+    } else if (campo_email.value.length < 4) {
 
-   //console.log(a);
+        alert("Faltam caracteres no seu email");
+    }
 
-    a.insertBefore(resposta, campo_email.parentNode);
+    else {
+        const resposta = document.createElement("span");
+        const mensagem = document.createTextNode("E-mail salvo com Sucesso!");
+
+        resposta.appendChild(mensagem);
+
+        const a = document.querySelector(".news__form");
+
+        //const a = campo_email.parentNode;
+
+        //console.log(a);
+
+        a.insertBefore(resposta, campo_email.parentNode);
+    }
 })
